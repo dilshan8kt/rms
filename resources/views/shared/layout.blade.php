@@ -17,7 +17,6 @@
 		<link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 		<link href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" />
 		<link href="{{ asset('css/animate.min.css') }}" rel="stylesheet" />
-		<link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
 		<link href="{{ asset('css/style.min.css') }}" rel="stylesheet" />
 		<link href="{{ asset('plugins/gritter/css/jquery.gritter.css') }}" rel="stylesheet" />	
 		<!-- ================== END BASE CSS STYLE ================== -->
@@ -65,8 +64,6 @@
 		<script src="{{ asset('plugins/gritter/js/jquery.gritter.js') }}"></script>
 		<script src="{{ asset('plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
 		<script src="{{ asset('plugins/jquery-cookie/jquery.cookie.js') }}"></script>
-		<script src="{{ asset('js/select2.min.js') }}"></script>
-		<script src="{{ asset('js/select2.js') }}"></script>
 		<script src="{{ asset('js/apps.min.js') }}"></script>
 		<!-- ================== END BASE JS ================== -->
 		
@@ -95,7 +92,7 @@
 			</script>
 		@endif
 
-		@if(session()->has('loggedin'))
+		{{-- @if(session()->has('loggedin'))
 			<script>
 				$.gritter.add({
 					title: "{{ session()->get('loggedin') }}, {{ Auth::user()->first_name }}",
@@ -105,7 +102,7 @@
 					class_name: "my-sticky-class"
 				});
 			</script>
-		@endif
+		@endif --}}
 		<script>
 			$(document).ready(function() {
 				App.init();

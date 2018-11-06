@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use App\User;
 
 class AuthController extends Controller
@@ -20,5 +21,11 @@ class AuthController extends Controller
             return redirect()->back()->with('error','Login Error, Account Deactivated.');
         }
         return redirect()->back()->with('error','Invalid Credentials')->withInput();
+    }
+
+    public function signout(){
+        Auth::Logout();
+        session::flush();
+        return redirect('/')->with('logout', 'Successfully Logout');
     }
 }

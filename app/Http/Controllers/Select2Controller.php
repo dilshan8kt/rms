@@ -9,6 +9,7 @@ class Select2Controller extends Controller
 {
     public function GetSuggestionsForSelect2(Request $request)
     {
+        
         $id = trim($request->id);
         $term = trim($request->q);
         $table = trim($request->t);

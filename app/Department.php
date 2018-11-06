@@ -9,6 +9,11 @@ class Department extends Model
 {
     use SoftDeletes;
 
+    //one department has many category
+    public function category(){
+        return $this->hasMany(Category::class);
+    }
+    
     /**
      * The attributes that are mass assignable.
      *

@@ -8,6 +8,10 @@ use Validator;
 
 class DepartmentController extends Controller
 {
+    public function __construct(){
+        $this->middleware(['auth']);
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +58,7 @@ class DepartmentController extends Controller
 
         if($dep != null){
             $split_depcode = explode('-', $dep->code, 2);
-            $code = $split_supcode[1];
+            $code = $split_depcode[1];
             $code = $code + 1;
             if(strlen($code) === 1){
                 $code = '0'.$code;

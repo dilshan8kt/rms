@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use App\Category;
+use App\Supplier;
 
 class ProductController extends Controller
 {
+    public function __construct(){
+        $this->middleware(['auth']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('home.master.product.products');
+        $data['product'] = Product::all();
+        $data['supplier'] = Supplier::all();
+        dd($data['product']->unit);
+        return view('home.master.product.products')
+            ->with('data',$data);
     }
 
     /**
@@ -34,7 +44,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -80,5 +90,13 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function GetCategory(Request $request){
+        $data = Category::where('department_id',$request->department_id)->get();
+
+        return view('home.master.product.category')
+            ->with('data',$data);
+        // return json_encode($data);
     }
 }

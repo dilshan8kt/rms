@@ -11,6 +11,11 @@ Route::post('signin',[
     'as' => 'signin'
 ]);
 
+Route::get('signout',[
+    'uses' => 'AuthController@signout',
+    'as' => 'signout'
+]);
+
 Route::get('dashboard', [
     'uses' => 'HomeController@index',
     'as' => 'dashboard'
@@ -61,9 +66,20 @@ Route::get('category', [
     'as' => 'category'
 ]);
 
+Route::post('category', [
+    'uses' => 'CategoryController@store',
+    'as' => 'category'
+]);
+
 Route::get('product', [
     'uses' => 'ProductController@index',
     'as' => 'product'
 ]);
 
-Route::get('/get_suggestions_for_select2','Select2Controller@GetSuggestionsForSelect2');
+Route::post('product', [
+    'uses' => 'ProductController@store',
+    'as' => 'product'
+]);
+
+// Route::get('/get_suggestions_for_select2','Select2Controller@GetSuggestionsForSelect2');
+Route::get('/get_category','ProductController@GetCategory');

@@ -33,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data as $category)
+                    @foreach ($data['category'] as $category)
                         
                         <tr class="odd gradeX">
                             <td></td>

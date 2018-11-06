@@ -11,9 +11,14 @@
 
                     <div class="form-group row m-b-15">
                         <label class="col-md-4 col-sm-4 col-form-label" for="name">Department * :</label>
-                        <select class="form-control selectpicker" data-live-search="true" name="department_id" id="department_id">
-                            <option value="">Select Department</option>
-                        </select>
+                        <div class="col-md-8 col-sm-8">
+                            <select class="form-control selectpicker" data-live-search="true" name="department_id" id="department_id">
+                                <option value="">Select Department</option>
+                                @foreach ($data['department'] as $department)
+                                    <option value="{{ $department->id }}">{{ $department->code . ' - ' .$department->name }}</option>                                
+                                @endforeach
+                            </select>    
+                        </div>
                     </div>
             
                     <div class="form-group row m-b-15">

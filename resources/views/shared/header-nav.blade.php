@@ -92,15 +92,15 @@
             <li class="dropdown navbar-user">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                     <span class="image"><img src="{{ asset('img/user_profile.jpg') }}" alt="" /></span>
-                    <span class="hidden-xs">John Smith</span> <b class="caret"></b>
+                    <span class="hidden-xs">{{ Auth::user()->email }}</span> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu pull-right">
                     <li><a href="javascript:;">Edit Profile</a></li>
-                    <li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Inbox</a></li>
-                    <li><a href="javascript:;">Calendar</a></li>
                     <li><a href="javascript:;">Setting</a></li>
                     <li class="divider"></li>
-                    <li><a href="javascript:;">Log Out</a></li>
+                    <li>
+                        <a href="{{ route('signout') }}" class="dropdown-item">Log Out</a>
+                    </li>
                 </ul>
             </li>
             {{-- <li>
